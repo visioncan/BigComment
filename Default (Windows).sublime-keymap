@@ -1,0 +1,4 @@
+[
+	{ "keys": ["ctrl+alt+c"], "command": "big_comment" }
+]
+

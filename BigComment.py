@@ -3,6 +3,7 @@ import sublime, sublime_plugin, re
 class BigCommentCommand(sublime_plugin.TextCommand):
 
 	FONTS = {
+		" ": [[2],[2],[2],[2],[2],[2],[2]],
 		"!": [[0,4],[0,4],[0,4],[1,2,1],[4],[0,4],[0,4]],
 		"\"": [[0,4,1,4],[0,4,1,4],[1,2,3,2,1],[9],[9],[9],[9]],
 		"#": [[2,2,1,2,2],[2,2,1,2,2],[0,9],[2,2,1,2,2],[0,9],[2,2,1,2,2],[2,2,1,2,2]],
@@ -79,15 +80,22 @@ class BigCommentCommand(sublime_plugin.TextCommand):
 
 		selected = False
 		for selection in selections:
-			line = False
+			is_line = False
 			if selection.empty():
-				line = True
+				is_line = True
 				selection = self.view.line(selection)
 	
 			text = self.view.substr(selection)
-			comment = self.convert(text)
+			comments = []
+			lines = text.split("\n")
+			for line in lines:
+				if not line == "":
+					comment = self.convert(line)
+					comments.append(comment)
 
-			if not line:
+			comment = "\n\n".join(comments)
+
+			if not is_line:
 				comment = "\n" + comment + "\n"
 
 			self.view.replace(edit, selection, comment)

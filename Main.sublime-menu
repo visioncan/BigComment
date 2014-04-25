@@ -1,0 +1,44 @@
+[
+    {
+        "id": "preferences",
+        "children":
+        [
+            {
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "BigComment",
+                        "children":
+                        [
+                            {
+                                "caption": "Key Bindings – Default",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/BigComment/Default (OSX).sublime-keymap",
+                                    "platform": "OSX"
+                                }
+                            },
+                            {
+                                "caption": "Key Bindings – Default",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/BigComment/Default (Linux).sublime-keymap",
+                                    "platform": "Linux"
+                                }
+                            },
+                            {
+                                "caption": "Key Bindings – Default",
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/BigComment/Default (Windows).sublime-keymap",
+                                    "platform": "Windows"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
